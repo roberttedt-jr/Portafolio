@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roberto Muñoz | Desarrollador Multiplataforma</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#020617',   
+                        card: '#1e293b',   
+                        primary: '#38bdf8', 
+                        secondary: '#818cf8', 
+                        accent: '#2dd4bf',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        #networkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            opacity: 0.6;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <canvas id="networkCanvas"></canvas>
+
+    <nav class="fixed w-full z-50 glass border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <span class="text-primary font-mono text-xl font-bold">&lt;RM /&gt;</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-primary transition font-medium">Inicio</a>
+                    <a href="#trayectoria" class="hover:text-primary transition font-medium">Experiencia</a>
+                    <a href="#proyectos" class="hover:text-primary transition font-medium">Proyectos</a>
+                    <a href="#skills" class="hover:text-primary transition font-medium">Skills</a>
+                </div>
+
+                <button class="md:hidden text-white text-xl" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-card p-4 border-t border-slate-700 shadow-xl">
+            <a href="#inicio" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Inicio</a>
+            <a href="#trayectoria" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Experiencia</a>
+            <a href="#proyectos" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Proyectos</a>
+            <a href="#skills" class="block py-3 hover:text-primary" onclick="toggleMenu()">Skills</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="min-h-screen flex items-center pt-20 px-4 relative">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="order-2 md:order-1 reveal active">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-mono mb-6">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Open to Work
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+                    Hola, soy <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Roberto Muñoz</span>
+                </h1>
+                
+                <h2 class="text-xl text-slate-400 font-mono mb-6 h-8" id="typing-text"></h2>
+                
+                <p class="text-lg text-slate-300 mb-8 max-w-lg leading-relaxed">
+                    Técnico en Sistemas y estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona unir el mundo del hardware y redes con el desarrollo de software moderno.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#proyectos" class="px-6 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-white transition shadow-[0_0_15px_rgba(56,189,248,0.4)] text-center">
+                        Ver Proyectos
+                    </a>
+                    <a href="https://www.linkedin.com/in/robertomu%C3%B1ozrovira/" target="_blank" class="px-6 py-3 border border-slate-600 rounded-lg hover:bg-slate-800 transition flex items-center justify-center gap-2 text-center">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 flex justify-center reveal active">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 border-2 border-primary/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-4 border-2 border-secondary/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                    
+                    <div class="absolute inset-8 rounded-full overflow-hidden border-2 border-slate-700 bg-slate-800 shadow-2xl">
+                        <img src="FotoPerfil.jpg" 
+                             alt="Roberto Muñoz" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trayectoria" class="py-24 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Trayectoria</h2>
+                    <p class="text-slate-400 mt-2">Mi camino profesional y académico.</p>
+                </div>
+                <div class="h-1 w-full md:w-1/3 bg-gradient-to-r from-primary/50 to-transparent rounded-full hidden md:block"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-primary transition-colors duration-300 reveal group">
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4 sm:gap-0">
+                        <div class="p-3 bg-primary/10 rounded-xl text-primary text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300">Sept 2024 - Dic 2024</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">Técnico Informático</h3>
+                    <p class="text-primary font-medium mb-4">HIGHER EDUCATION BARCELONA S.L.U</p>
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                        Experiencia profesional en remoto gestionando incidencias, soporte técnico y mantenimiento de sistemas en un entorno corporativo real.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Soporte Remoto</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Mantenimiento</span>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-secondary transition-colors duration-300 reveal group delay-100">
+                    <div class="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4 sm:gap-0">
+                        <div class="p-3 bg-secondary/10 rounded-xl text-secondary text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-green-400 border-green-900/30">En curso</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">DAM (Desarrollo Multiplataforma)</h3>
+                    <p class="text-secondary font-medium mb-4">UNIVERSAE</p>
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                        Especialización avanzada en arquitectura de software, desarrollo móvil (Android/Kotlin) y gestión de bases de datos SQL.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Java</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">SQL</span>
+                        <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Android</span>
+                    </div>
+                </div>
+
+                <div id="formacion" class="md:col-span-2 glass p-6 rounded-2xl border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 bg-slate-800 rounded-full text-slate-400 shrink-0">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Técnico SMR (Sistemas Microinformáticos y Redes)</h4>
+                            <p class="text-slate-400 text-sm">UNIVERSAE • 2024 - 2025</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 flex-wrap mt-4 md:mt-0">
+                         <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Linux</span>
+                         <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Ciberseguridad</span>
+                         <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Redes</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-20 px-4 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal">Proyectos Destacados</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass rounded-xl overflow-hidden group reveal">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <i class="fas fa-leaf absolute -bottom-4 -right-4 text-9xl text-green-900/30 group-hover:text-green-600/20 transition"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-seedling text-5xl text-green-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Terranova Agri Tech</h3>
+                        <p class="text-sm font-mono text-green-400 mb-4">Web App • Gestión Agrícola</p>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Aplicación web para optimizar el uso de fertilizantes y gestión de cultivos. Proyecto enfocado en la eficiencia y usabilidad.
+                        </p>
+                        <a href="https://terranova-agri-tech-nzjw.bolt.host/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-green-600 text-white rounded transition">
+                            Ver App <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-xl overflow-hidden group reveal">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <i class="fas fa-code absolute -bottom-4 -right-4 text-9xl text-blue-900/30 group-hover:text-blue-600/20 transition"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-layer-group text-5xl text-blue-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Ejercicios & Labs</h3>
+                        <p class="text-sm font-mono text-blue-400 mb-4">Java • Python • SQL</p>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Colección de prácticas de clase, algoritmos y pequeños scripts de automatización desarrollados durante el curso.
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-blue-600 text-white rounded transition">
+                            Ver GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto reveal">
+            <p class="text-primary font-mono mb-6">STACK TECNOLÓGICO</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fab fa-java text-orange-400"></i> Java
+                </span>
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fab fa-android text-green-500"></i> Android
+                </span>
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fas fa-database text-blue-400"></i> SQL
+                </span>
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fab fa-linux text-yellow-400"></i> Linux
+                </span>
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fab fa-html5 text-orange-600"></i> HTML/CSS
+                </span>
+                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fab fa-git-alt text-red-500"></i> Git
+                </span>
+                 <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-green-400"></i> Ciberseguridad
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 px-4 bg-slate-900 border-t border-slate-800 text-center">
+        <div class="max-w-2xl mx-auto reveal">
+            <h2 class="text-3xl font-bold text-white mb-6">¿Hablamos?</h2>
+            <p class="text-slate-400 mb-8">
+                Estoy disponible para unirme a proyectos de desarrollo o soporte.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:roberttedt@gmail.com" class="px-8 py-3 bg-white text-dark font-bold rounded hover:scale-105 transition">
+                    <i class="fas fa-envelope mr-2"></i> Enviar Correo
+                </a>
+                <a href="tel:+34654851936" class="px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition">
+                    <i class="fas fa-phone mr-2"></i> +34 654 85 19 36
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const texts = ["Desarrollador DAM", "Técnico de Sistemas"];
+            let count = 0;
+            let index = 0;
+            let currentText = "";
+            let letter = "";
+
+            function type() {
+                if (count === texts.length) count = 0;
+                currentText = texts[count];
+                letter = currentText.slice(0, ++index);
+
+                const target = document.getElementById('typing-text');
+                if(target) target.textContent = letter;
+                
+                if (letter.length === currentText.length) {
+                    count++;
+                    index = 0;
+                    setTimeout(type, 2000);
+                } else {
+                    setTimeout(type, 100);
+                }
+            }
+            type();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            });
+            document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+            const canvas = document.getElementById('networkCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let w, h, particles; 
+
+                function resize() {
+                    w = canvas.width = window.innerWidth;
+                    h = canvas.height = window.innerHeight;
+                }
+                
+                function initParticles() {
+                    particles = [];
+                    for(let i = 0; i < 60; i++) {
+                        particles.push({
+                            x: Math.random() * w,
+                            y: Math.random() * h,
+                            vx: (Math.random() - 0.5) * 0.5,
+                            vy: (Math.random() - 0.5) * 0.5
+                        });
+                    }
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, w, h);
+                    for(let i = 0; i < particles.length; i++) {
+                        let p = particles[i];
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        
+                        if(p.x < 0 || p.x > w) p.vx *= -1;
+                        if(p.y < 0 || p.y > h) p.vy *= -1;
+                        
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = '#38bdf8';
+                        ctx.fill();
+                        
+                        for(let j = i; j < particles.length; j++) {
+                            let p2 = particles[j];
+                            let dx = p.x - p2.x;
+                            let dy = p.y - p2.y;
+                            let distance = Math.sqrt(dx*dx + dy*dy);
+                            
+                            if(distance < 120) {
+                                ctx.beginPath();
+                                ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance/120})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.moveTo(p.x, p.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }
+
+                window.addEventListener('resize', () => { resize(); initParticles(); });
+                resize();
+                initParticles();
+                animate();
+            }
+        });
+    </script>
+</body>
+</html>

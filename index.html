@@ -65,15 +65,15 @@
         }
 
         /* Estilos para el modal */
-        #skill-modal {
+        .modal-container {
             transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
         }
-        #skill-modal.hidden-modal {
+        .hidden-modal {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
-        #skill-modal.visible-modal {
+        .visible-modal {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
@@ -108,7 +108,6 @@
                     <a href="#proyectos" class="px-6 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-white transition shadow-[0_0_15px_rgba(56,189,248,0.4)] text-center">
                         Ver Proyectos
                     </a>
-                    <!-- Enlazado al archivo PDF genérico 'CV.pdf' (asegúrate de renombrar tu archivo nuevo a este nombre) -->
                     <a href="CV.pdf" download class="px-6 py-3 bg-slate-800 text-white border border-slate-600 font-bold rounded-lg hover:bg-slate-700 hover:border-primary transition flex items-center justify-center gap-2 text-center">
                         <i class="fas fa-file-pdf text-red-400"></i> Descargar CV
                     </a>
@@ -150,7 +149,6 @@
                         <div class="p-3 bg-primary/10 rounded-xl text-primary text-2xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <!-- Fecha sincronizada con el CV nuevo -->
                         <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300">Sept 2024 - Dic 2024</span>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Técnico Informático</h3>
@@ -191,7 +189,6 @@
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-white">Técnico SMR (Sistemas Microinformáticos y Redes)</h4>
-                            <!-- Fecha sincronizada con el CV nuevo -->
                             <p class="text-slate-400 text-sm">UNIVERSAE • Feb 2024 - Feb 2025</p>
                         </div>
                     </div>
@@ -210,7 +207,6 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-12 reveal">Proyectos Destacados</h2>
             
-            <!-- Grid 2x2 -->
             <div class="grid md:grid-cols-2 gap-8">
                 
                 <!-- Proyecto 1: Terranova -->
@@ -227,10 +223,13 @@
                         <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Aplicación web para optimizar el uso de fertilizantes y gestión de cultivos. Proyecto enfocado en la eficiencia y usabilidad.
                         </p>
-                        <div class="mt-auto">
-                            <a href="https://roberttedt-jr.github.io/Ejercicio-Web-App-TerraNova/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-green-600 text-white rounded transition">
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://roberttedt-jr.github.io/Ejercicio-Web-App-TerraNova/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-green-600 text-white rounded transition text-sm">
                                 Ver App <i class="fas fa-external-link-alt"></i>
                             </a>
+                            <button onclick="openProjectModal('terranova')" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 hover:bg-slate-800 text-white rounded transition text-sm">
+                                Info <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -251,10 +250,13 @@
                         <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Aplicación meteorológica que consume una API pública para consultar el clima en tiempo real de cualquier ciudad del mundo.
                         </p>
-                        <div class="mt-auto">
-                            <a href="https://roberttedt-jr.github.io/App-Tiempo-Ejercicio/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-yellow-600 text-white rounded transition">
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://roberttedt-jr.github.io/App-Tiempo-Ejercicio/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-yellow-600 text-white rounded transition text-sm">
                                 Ver App <i class="fas fa-external-link-alt"></i>
                             </a>
+                            <button onclick="openProjectModal('atmos')" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 hover:bg-slate-800 text-white rounded transition text-sm">
+                                Info <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -275,10 +277,13 @@
                         <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Gestor de tareas minimalista e intuitivo. Permite organizar pendientes con persistencia de datos local para no perder tu progreso.
                         </p>
-                        <div class="mt-auto">
-                            <a href="https://roberttedt-jr.github.io/Ejercicio-To-Do-List/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-purple-600 text-white rounded transition">
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://roberttedt-jr.github.io/Ejercicio-To-Do-List/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-purple-600 text-white rounded transition text-sm">
                                 Ver App <i class="fas fa-external-link-alt"></i>
                             </a>
+                            <button onclick="openProjectModal('done')" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 hover:bg-slate-800 text-white rounded transition text-sm">
+                                Info <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -297,10 +302,13 @@
                         <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Colección de prácticas de clase, algoritmos y pequeños scripts de automatización desarrollados durante el curso.
                         </p>
-                        <div class="mt-auto">
-                            <a href="https://github.com/roberttedt-jr" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-blue-600 text-white rounded transition">
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://github.com/roberttedt-jr" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-blue-600 text-white rounded transition text-sm">
                                 Ver GitHub <i class="fab fa-github"></i>
                             </a>
+                            <button onclick="openProjectModal('labs')" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 hover:bg-slate-800 text-white rounded transition text-sm">
+                                Info <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -355,7 +363,7 @@
                     </span>
                 </button>
 
-                <!-- Botón Copiar Teléfono (Modificado) -->
+                <!-- Botón Copiar Teléfono -->
                 <button onclick="copyPhone()" class="group relative px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition flex items-center gap-2 active:scale-95 hover:border-primary">
                     <i class="fas fa-phone mr-2"></i> 
                     <span>+34 654 85 19 36</span>
@@ -366,7 +374,6 @@
                     </span>
                 </button>
             </div>
-            <!-- Ubicación y Movilidad añadidas -->
             <div class="mt-8 flex flex-col items-center gap-2 text-slate-500">
                 <div class="flex items-center gap-2">
                     <i class="fas fa-map-marker-alt text-primary"></i> Benidorm, Alicante
@@ -378,19 +385,45 @@
         </div>
     </section>
 
-    <!-- Modal Structure -->
-    <div id="skill-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4">
-        <!-- Backdrop -->
+    <!-- Modal SKILLS (Existente) -->
+    <div id="skill-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4 modal-container">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSkillModal()"></div>
-        <!-- Modal Content -->
         <div class="glass relative w-full max-w-md p-8 rounded-2xl border border-slate-600 shadow-2xl transform transition-all scale-100">
             <button onclick="closeSkillModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
                 <i class="fas fa-times text-xl"></i>
             </button>
-            
             <div id="modal-icon" class="text-4xl mb-4"></div>
             <h3 id="modal-title" class="text-2xl font-bold text-white mb-3"></h3>
             <p id="modal-desc" class="text-slate-300 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- NUEVO: Modal PROYECTOS -->
+    <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4 modal-container">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeProjectModal()"></div>
+        <div class="glass relative w-full max-w-lg p-8 rounded-2xl border border-slate-600 shadow-2xl transform transition-all scale-100">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <h3 id="proj-title" class="text-2xl font-bold text-white mb-4"></h3>
+            
+            <div class="space-y-4">
+                <div>
+                    <h4 class="text-primary font-mono text-sm uppercase mb-1 border-b border-slate-700 pb-1">¿Qué es?</h4>
+                    <p id="proj-desc" class="text-slate-300 leading-relaxed text-sm"></p>
+                </div>
+                
+                <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                    <h4 class="text-purple-400 font-mono text-sm uppercase mb-1"><i class="fas fa-robot mr-1"></i> Uso de IA</h4>
+                    <p id="proj-ai" class="text-slate-400 text-sm"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-green-400 font-mono text-sm uppercase mb-1"><i class="fas fa-lightbulb mr-1"></i> Aprendizaje</h4>
+                    <p id="proj-learn" class="text-slate-300 text-sm"></p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -400,124 +433,144 @@
             if(menu) menu.classList.toggle('hidden');
         }
 
-        // Función para copiar email
-        function copyEmail() {
-            const email = "roberttedt@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const feedback = document.getElementById('copy-feedback');
-                feedback.classList.remove('opacity-0');
-                feedback.classList.add('opacity-100');
-                
-                setTimeout(() => {
-                    feedback.classList.remove('opacity-100');
-                    feedback.classList.add('opacity-0');
-                }, 2000);
-            }).catch(err => {
-                console.error('Error al copiar: ', err);
-                alert("Email: " + email);
-            });
-        }
-
-        // Función para copiar teléfono
-        function copyPhone() {
-            const phone = "+34 654 85 19 36";
-            navigator.clipboard.writeText(phone).then(() => {
-                const feedback = document.getElementById('copy-phone-feedback');
-                feedback.classList.remove('opacity-0');
-                feedback.classList.add('opacity-100');
-                
-                setTimeout(() => {
-                    feedback.classList.remove('opacity-100');
-                    feedback.classList.add('opacity-0');
-                }, 2000);
-            }).catch(err => {
-                console.error('Error al copiar: ', err);
-                alert("Teléfono: " + phone);
-            });
-        }
-
-        // Datos para los modales
-        const skillsData = {
-            'java': {
-                title: 'Java',
-                icon: '<i class="fab fa-java text-orange-400"></i>',
-                desc: 'Lenguaje orientado a objetos que utilizo como base para el desarrollo backend y aplicaciones de escritorio. Me permite crear código robusto, escalable y seguro.'
-            },
-            'android': {
-                title: 'Desarrollo Android',
-                icon: '<i class="fab fa-android text-green-500"></i>',
-                desc: 'Desarrollo de aplicaciones móviles nativas utilizando Android Studio. Experiencia en la creación de interfaces intuitivas, gestión de ciclo de vida de actividades y conectividad con APIs.'
-            },
-            'sql': {
-                title: 'Bases de Datos SQL',
-                icon: '<i class="fas fa-database text-blue-400"></i>',
-                desc: 'Diseño y gestión de bases de datos relacionales. Redacción de consultas complejas para extraer información, asegurar la integridad de los datos y optimizar el rendimiento del almacenamiento.'
-            },
-            'linux': {
-                title: 'Administración Linux',
-                icon: '<i class="fab fa-linux text-yellow-400"></i>',
-                desc: 'Manejo fluido de la terminal, scripting en Bash y administración de servidores. Configuración de permisos, usuarios y servicios para mantener entornos seguros y estables.'
-            },
-            'html': {
-                title: 'HTML5 & CSS3',
-                icon: '<i class="fab fa-html5 text-orange-600"></i>',
-                desc: 'Estructuración semántica de contenido web y diseño de interfaces responsivas. Uso de frameworks modernos como Tailwind CSS para crear experiencias visuales atractivas y adaptables.'
-            },
-            'git': {
-                title: 'Git & GitHub',
-                icon: '<i class="fab fa-git-alt text-red-500"></i>',
-                desc: 'Control de versiones para gestionar el código fuente de manera eficiente. Trabajo con ramas, commits y pull requests para facilitar la colaboración y el seguimiento de cambios en proyectos.'
-            },
-            'security': {
-                title: 'Ciberseguridad Básica',
-                icon: '<i class="fas fa-shield-alt text-green-400"></i>',
-                desc: 'Aplicación de buenas prácticas de seguridad informática, hardening de sistemas y concienciación sobre vulnerabilidades para proteger la infraestructura y los datos.'
+        async function copyToClipboard(text, feedbackId) {
+            try {
+                await navigator.clipboard.writeText(text);
+                showFeedback(feedbackId);
+            } catch (err) {
+                console.warn('Clipboard API falló, usando fallback...', err);
+                try {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-9999px";
+                    textArea.style.top = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    if (successful) {
+                        showFeedback(feedbackId);
+                    } else {
+                        throw new Error('execCommand falló');
+                    }
+                } catch (fallbackErr) {
+                    console.error('Fallback error: ', fallbackErr);
+                    prompt("No se pudo copiar automáticamente. Puedes copiarlo aquí:", text);
+                }
             }
+        }
+
+        function showFeedback(elementId) {
+            const feedback = document.getElementById(elementId);
+            if (feedback) {
+                feedback.classList.remove('opacity-0');
+                feedback.classList.add('opacity-100');
+                setTimeout(() => {
+                    feedback.classList.remove('opacity-100');
+                    feedback.classList.add('opacity-0');
+                }, 2000);
+            }
+        }
+
+        function copyEmail() { copyToClipboard("roberttedt@gmail.com", "copy-feedback"); }
+        function copyPhone() { copyToClipboard("+34 654 85 19 36", "copy-phone-feedback"); }
+
+        /* --- LÓGICA MODALES SKILLS --- */
+        const skillsData = {
+            'java': { title: 'Java', icon: '<i class="fab fa-java text-orange-400"></i>', desc: 'Lenguaje orientado a objetos que utilizo como base para el desarrollo backend y aplicaciones de escritorio. Me permite crear código robusto, escalable y seguro.' },
+            'android': { title: 'Desarrollo Android', icon: '<i class="fab fa-android text-green-500"></i>', desc: 'Desarrollo de aplicaciones móviles nativas utilizando Android Studio. Experiencia en la creación de interfaces intuitivas, gestión de ciclo de vida de actividades y conectividad con APIs.' },
+            'sql': { title: 'Bases de Datos SQL', icon: '<i class="fas fa-database text-blue-400"></i>', desc: 'Diseño y gestión de bases de datos relacionales. Redacción de consultas complejas para extraer información, asegurar la integridad de los datos y optimizar el rendimiento del almacenamiento.' },
+            'linux': { title: 'Administración Linux', icon: '<i class="fab fa-linux text-yellow-400"></i>', desc: 'Manejo fluido de la terminal, scripting en Bash y administración de servidores. Configuración de permisos, usuarios y servicios para mantener entornos seguros y estables.' },
+            'html': { title: 'HTML5 & CSS3', icon: '<i class="fab fa-html5 text-orange-600"></i>', desc: 'Estructuración semántica de contenido web y diseño de interfaces responsivas. Uso de frameworks modernos como Tailwind CSS para crear experiencias visuales atractivas y adaptables.' },
+            'git': { title: 'Git & GitHub', icon: '<i class="fab fa-git-alt text-red-500"></i>', desc: 'Control de versiones para gestionar el código fuente de manera eficiente. Trabajo con ramas, commits y pull requests para facilitar la colaboración y el seguimiento de cambios en proyectos.' },
+            'security': { title: 'Ciberseguridad Básica', icon: '<i class="fas fa-shield-alt text-green-400"></i>', desc: 'Aplicación de buenas prácticas de seguridad informática, hardening de sistemas y concienciación sobre vulnerabilidades para proteger la infraestructura y los datos.' }
         };
 
         function openSkillModal(skillKey) {
             const modal = document.getElementById('skill-modal');
             const data = skillsData[skillKey];
-            
             if(data) {
                 document.getElementById('modal-title').textContent = data.title;
                 document.getElementById('modal-desc').textContent = data.desc;
                 document.getElementById('modal-icon').innerHTML = data.icon;
-                
                 modal.classList.remove('hidden-modal');
                 modal.classList.add('visible-modal');
             }
         }
-
         function closeSkillModal() {
             const modal = document.getElementById('skill-modal');
             modal.classList.remove('visible-modal');
             modal.classList.add('hidden-modal');
         }
 
-        // Cerrar con tecla ESC
+        /* --- NUEVA LÓGICA MODALES PROYECTOS --- */
+        const projectsData = {
+            'terranova': {
+                title: 'Terranova Agri Tech',
+                desc: 'Aplicación web para la gestión agrícola que permite calcular necesidades de fertilizantes y organizar cultivos de forma eficiente.',
+                ai: 'Utilicé IA para optimizar las fórmulas matemáticas de cálculo agrícola y para generar sugerencias en el diseño responsivo del layout.',
+                learn: 'Aprendí a estructurar una Web App completa, gestionar estados complejos en formularios y mejorar la experiencia de usuario (UX) en herramientas de gestión.'
+            },
+            'atmos': {
+                title: 'ATMOS.',
+                desc: 'Aplicación de consulta meteorológica en tiempo real que conecta con una API pública para mostrar datos precisos de cualquier ubicación.',
+                ai: 'Me apoyé en IA para entender mejor la documentación de la API y para solucionar problemas con las peticiones asíncronas (Fetch).',
+                learn: 'Comprendí el funcionamiento de las APIs REST, el manejo de promesas en JavaScript y la manipulación del DOM con datos dinámicos.'
+            },
+            'done': {
+                title: 'Done.',
+                desc: 'Lista de tareas (To-Do List) minimalista que guarda la información en el navegador para que no se pierda al cerrar la pestaña.',
+                ai: 'La IA me ayudó a implementar la lógica del Canvas para efectos visuales y a refinar las funciones de guardado en LocalStorage.',
+                learn: 'Profundicé en el uso de LocalStorage para persistencia de datos y en la gestión de eventos de usuario para crear interfaces interactivas.'
+            },
+            'labs': {
+                title: 'Ejercicios & Labs',
+                desc: 'Repositorio con diversos scripts y pequeños programas creados durante mi formación para resolver problemas algorítmicos.',
+                ai: 'Usé IA para depurar código (debugging), encontrar errores de lógica en los algoritmos y explorar formas alternativas de resolver el mismo problema.',
+                learn: 'Mejoré mi lógica de programación, aprendí sintaxis avanzada de Java/Python y buenas prácticas de código limpio (Clean Code).'
+            }
+        };
+
+        function openProjectModal(projKey) {
+            const modal = document.getElementById('project-modal');
+            const data = projectsData[projKey];
+            if(data) {
+                document.getElementById('proj-title').textContent = data.title;
+                document.getElementById('proj-desc').textContent = data.desc;
+                document.getElementById('proj-ai').textContent = data.ai;
+                document.getElementById('proj-learn').textContent = data.learn;
+                modal.classList.remove('hidden-modal');
+                modal.classList.add('visible-modal');
+            }
+        }
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('visible-modal');
+            modal.classList.add('hidden-modal');
+        }
+
+        // Cerrar con tecla ESC (ambos modales)
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeSkillModal();
+                closeProjectModal();
             }
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-            
             const texts = ["Desarrollador DAM", "Técnico de Sistemas"];
             let count = 0;
             let index = 0;
             let currentText = "";
             let letter = "";
-
             function type() {
                 if (count === texts.length) count = 0;
                 currentText = texts[count];
                 letter = currentText.slice(0, ++index);
-
                 const target = document.getElementById('typing-text');
                 if(target) target.textContent = letter;
-                
                 if (letter.length === currentText.length) {
                     count++;
                     index = 0;
@@ -530,9 +583,7 @@
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('active');
                 });
             });
             document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
@@ -541,65 +592,37 @@
             if (canvas) {
                 const ctx = canvas.getContext('2d');
                 let w, h, particles; 
-
-                function resize() {
-                    w = canvas.width = window.innerWidth;
-                    h = canvas.height = window.innerHeight;
-                }
-                
+                function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
                 function initParticles() {
                     particles = [];
                     for(let i = 0; i < 60; i++) {
-                        particles.push({
-                            x: Math.random() * w,
-                            y: Math.random() * h,
-                            vx: (Math.random() - 0.5) * 0.5,
-                            vy: (Math.random() - 0.5) * 0.5
-                        });
+                        particles.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5 });
                     }
                 }
-
                 function animate() {
                     ctx.clearRect(0, 0, w, h);
                     for(let i = 0; i < particles.length; i++) {
                         let p = particles[i];
-                        p.x += p.vx;
-                        p.y += p.vy;
-                        
+                        p.x += p.vx; p.y += p.vy;
                         if(p.x < 0 || p.x > w) p.vx *= -1;
                         if(p.y < 0 || p.y > h) p.vy *= -1;
-                        
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                        ctx.fillStyle = '#38bdf8';
-                        ctx.fill();
-                        
+                        ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fillStyle = '#38bdf8'; ctx.fill();
                         for(let j = i; j < particles.length; j++) {
                             let p2 = particles[j];
-                            let dx = p.x - p2.x;
-                            let dy = p.y - p2.y;
+                            let dx = p.x - p2.x; let dy = p.y - p2.y;
                             let distance = Math.sqrt(dx*dx + dy*dy);
-                            
                             if(distance < 120) {
-                                ctx.beginPath();
-                                ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance/120})`;
-                                ctx.lineWidth = 0.5;
-                                ctx.moveTo(p.x, p.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.stroke();
+                                ctx.beginPath(); ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance/120})`;
+                                ctx.lineWidth = 0.5; ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
                             }
                         }
                     }
                     requestAnimationFrame(animate);
                 }
-
                 window.addEventListener('resize', () => { resize(); initParticles(); });
-                resize();
-                initParticles();
-                animate();
+                resize(); initParticles(); animate();
             }
         });
     </script>
 </body>
-
 </html>

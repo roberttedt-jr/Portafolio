@@ -63,44 +63,32 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Estilos para el modal */
+        #skill-modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        #skill-modal.hidden-modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #skill-modal.visible-modal {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <canvas id="networkCanvas"></canvas>
 
-    <nav class="fixed w-full z-50 glass border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <span class="text-primary font-mono text-xl font-bold">&lt;RM /&gt;</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="hover:text-primary transition font-medium">Inicio</a>
-                    <a href="#trayectoria" class="hover:text-primary transition font-medium">Experiencia</a>
-                    <a href="#proyectos" class="hover:text-primary transition font-medium">Proyectos</a>
-                    <a href="#skills" class="hover:text-primary transition font-medium">Skills</a>
-                </div>
-
-                <button class="md:hidden text-white text-xl" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-card p-4 border-t border-slate-700 shadow-xl">
-            <a href="#inicio" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Inicio</a>
-            <a href="#trayectoria" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Experiencia</a>
-            <a href="#proyectos" class="block py-3 hover:text-primary border-b border-slate-700/50" onclick="toggleMenu()">Proyectos</a>
-            <a href="#skills" class="block py-3 hover:text-primary" onclick="toggleMenu()">Skills</a>
-        </div>
-    </nav>
-
     <section id="inicio" class="min-h-screen flex items-center pt-20 px-4 relative">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             
-            <div class="order-2 md:order-1 reveal active">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-mono mb-6">
+            <div class="order-2 md:order-1 reveal active flex flex-col items-center text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-mono mb-6 mx-auto">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     Open to Work
                 </div>
@@ -110,13 +98,13 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Roberto Muñoz</span>
                 </h1>
                 
-                <h2 class="text-xl text-slate-400 font-mono mb-6 h-8" id="typing-text"></h2>
+                <h2 class="text-xl text-slate-400 font-mono mb-6 h-8 mx-auto" id="typing-text"></h2>
                 
-                <p class="text-lg text-slate-300 mb-8 max-w-lg leading-relaxed">
+                <p class="text-lg text-slate-300 mb-8 max-w-lg leading-relaxed mx-auto">
                     Técnico en Sistemas y estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona unir el mundo del hardware y redes con el desarrollo de software moderno.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
                     <a href="#proyectos" class="px-6 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-white transition shadow-[0_0_15px_rgba(56,189,248,0.4)] text-center">
                         Ver Proyectos
                     </a>
@@ -143,18 +131,18 @@
 
     <section id="trayectoria" class="py-24 px-4 relative">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal">
+            <div class="flex flex-col items-center text-center mb-16 gap-4 reveal">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Trayectoria</h2>
                     <p class="text-slate-400 mt-2">Mi camino profesional y académico.</p>
                 </div>
-                <div class="h-1 w-full md:w-1/3 bg-gradient-to-r from-primary/50 to-transparent rounded-full hidden md:block"></div>
+                <div class="h-1 w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-primary transition-colors duration-300 reveal group">
-                    <div class="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4 sm:gap-0">
+                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-primary transition-colors duration-300 reveal group text-center">
+                    <div class="flex flex-col items-center mb-6 gap-3">
                         <div class="p-3 bg-primary/10 rounded-xl text-primary text-2xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-laptop-code"></i>
                         </div>
@@ -162,17 +150,17 @@
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Técnico Informático</h3>
                     <p class="text-primary font-medium mb-4">HIGHER EDUCATION BARCELONA S.L.U</p>
-                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm mx-auto max-w-sm">
                         Experiencia profesional en remoto gestionando incidencias, soporte técnico y mantenimiento de sistemas en un entorno corporativo real.
                     </p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 justify-center">
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Soporte Remoto</span>
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Mantenimiento</span>
                     </div>
                 </div>
 
-                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-secondary transition-colors duration-300 reveal group delay-100">
-                    <div class="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4 sm:gap-0">
+                <div class="glass p-8 rounded-2xl border border-slate-700 hover:border-secondary transition-colors duration-300 reveal group delay-100 text-center">
+                    <div class="flex flex-col items-center mb-6 gap-3">
                         <div class="p-3 bg-secondary/10 rounded-xl text-secondary text-2xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
@@ -180,10 +168,10 @@
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">DAM (Desarrollo Multiplataforma)</h3>
                     <p class="text-secondary font-medium mb-4">UNIVERSAE</p>
-                    <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                    <p class="text-slate-400 mb-6 leading-relaxed text-sm mx-auto max-w-sm">
                         Especialización avanzada en arquitectura de software, desarrollo móvil (Android/iOS) y gestión de bases de datos SQL.
                     </p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 justify-center">
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Java</span>
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">SQL</span>
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Android</span>
@@ -191,8 +179,8 @@
                     </div>
                 </div>
 
-                <div id="formacion" class="md:col-span-2 glass p-6 rounded-2xl border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
-                    <div class="flex items-center gap-4">
+                <div id="formacion" class="md:col-span-2 glass p-6 rounded-2xl border border-slate-700 flex flex-col items-center justify-center gap-6 reveal text-center">
+                    <div class="flex flex-col items-center gap-2">
                         <div class="p-3 bg-slate-800 rounded-full text-slate-400 shrink-0">
                             <i class="fas fa-server"></i>
                         </div>
@@ -201,7 +189,7 @@
                             <p class="text-slate-400 text-sm">UNIVERSAE • 2024 - 2025</p>
                         </div>
                     </div>
-                    <div class="flex gap-2 flex-wrap mt-4 md:mt-0">
+                    <div class="flex gap-2 flex-wrap justify-center">
                          <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Linux</span>
                          <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Ciberseguridad</span>
                          <span class="px-3 py-1 rounded-md bg-slate-900/50 text-xs text-slate-500 border border-slate-800">Redes</span>
@@ -212,7 +200,7 @@
         </div>
     </section>
 
-    <section id="proyectos" class="py-20 px-4 bg-slate-900/30">
+    <section id="proyectos" class="py-20 px-4 bg-slate-900/30 text-center">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-12 reveal">Proyectos Destacados</h2>
             
@@ -224,13 +212,13 @@
                             <i class="fas fa-seedling text-5xl text-green-500"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col items-center">
                         <h3 class="text-2xl font-bold text-white mb-2">Terranova Agri Tech</h3>
                         <p class="text-sm font-mono text-green-400 mb-4">Web App • Gestión Agrícola</p>
-                        <p class="text-slate-400 text-sm mb-6">
+                        <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Aplicación web para optimizar el uso de fertilizantes y gestión de cultivos. Proyecto enfocado en la eficiencia y usabilidad.
                         </p>
-                        <a href="https://terranova-agri-tech-nzjw.bolt.host/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-green-600 text-white rounded transition">
+                        <a href="https://roberttedt-jr.github.io/Ejercicio-Web-App-TerraNova/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-green-600 text-white rounded transition">
                             Ver App <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
@@ -243,10 +231,10 @@
                             <i class="fas fa-layer-group text-5xl text-blue-500"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col items-center">
                         <h3 class="text-2xl font-bold text-white mb-2">Ejercicios & Labs</h3>
                         <p class="text-sm font-mono text-blue-400 mb-4">Java • Python • SQL</p>
-                        <p class="text-slate-400 text-sm mb-6">
+                        <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Colección de prácticas de clase, algoritmos y pequeños scripts de automatización desarrollados durante el curso.
                         </p>
                         <a href="https://github.com/roberttedt-jr" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-blue-600 text-white rounded transition">
@@ -260,29 +248,29 @@
 
     <section id="skills" class="py-20 px-4 text-center">
         <div class="max-w-4xl mx-auto reveal">
-            <p class="text-primary font-mono mb-6">STACK TECNOLÓGICO</p>
+            <p class="text-primary font-mono mb-6">STACK TECNOLÓGICO (Click para info)</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                <button onclick="openSkillModal('java')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-java text-orange-400"></i> Java
-                </span>
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                <button onclick="openSkillModal('android')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-android text-green-500"></i> Android
-                </span>
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                <button onclick="openSkillModal('sql')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fas fa-database text-blue-400"></i> SQL
-                </span>
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                <button onclick="openSkillModal('linux')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-linux text-yellow-400"></i> Linux
-                </span>
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                <button onclick="openSkillModal('html')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-html5 text-orange-600"></i> HTML/CSS
-                </span>
-                <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                <button onclick="openSkillModal('git')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-git-alt text-red-500"></i> Git
-                </span>
-                 <span class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2">
+                </button>
+                 <button onclick="openSkillModal('security')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fas fa-shield-alt text-green-400"></i> Ciberseguridad
-                </span>
+                </button>
             </div>
         </div>
     </section>
@@ -304,11 +292,93 @@
         </div>
     </section>
 
+    <!-- Modal Structure -->
+    <div id="skill-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSkillModal()"></div>
+        <!-- Modal Content -->
+        <div class="glass relative w-full max-w-md p-8 rounded-2xl border border-slate-600 shadow-2xl transform transition-all scale-100">
+            <button onclick="closeSkillModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div id="modal-icon" class="text-4xl mb-4"></div>
+            <h3 id="modal-title" class="text-2xl font-bold text-white mb-3"></h3>
+            <p id="modal-desc" class="text-slate-300 leading-relaxed"></p>
+        </div>
+    </div>
+
     <script>
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if(menu) menu.classList.toggle('hidden');
         }
+
+        // Datos para los modales
+        const skillsData = {
+            'java': {
+                title: 'Java',
+                icon: '<i class="fab fa-java text-orange-400"></i>',
+                desc: 'Lenguaje orientado a objetos que utilizo como base para el desarrollo backend y aplicaciones de escritorio. Me permite crear código robusto, escalable y seguro.'
+            },
+            'android': {
+                title: 'Desarrollo Android',
+                icon: '<i class="fab fa-android text-green-500"></i>',
+                desc: 'Desarrollo de aplicaciones móviles nativas utilizando Android Studio. Experiencia en la creación de interfaces intuitivas, gestión de ciclo de vida de actividades y conectividad con APIs.'
+            },
+            'sql': {
+                title: 'Bases de Datos SQL',
+                icon: '<i class="fas fa-database text-blue-400"></i>',
+                desc: 'Diseño y gestión de bases de datos relacionales. Redacción de consultas complejas para extraer información, asegurar la integridad de los datos y optimizar el rendimiento del almacenamiento.'
+            },
+            'linux': {
+                title: 'Administración Linux',
+                icon: '<i class="fab fa-linux text-yellow-400"></i>',
+                desc: 'Manejo fluido de la terminal, scripting en Bash y administración de servidores. Configuración de permisos, usuarios y servicios para mantener entornos seguros y estables.'
+            },
+            'html': {
+                title: 'HTML5 & CSS3',
+                icon: '<i class="fab fa-html5 text-orange-600"></i>',
+                desc: 'Estructuración semántica de contenido web y diseño de interfaces responsivas. Uso de frameworks modernos como Tailwind CSS para crear experiencias visuales atractivas y adaptables.'
+            },
+            'git': {
+                title: 'Git & GitHub',
+                icon: '<i class="fab fa-git-alt text-red-500"></i>',
+                desc: 'Control de versiones para gestionar el código fuente de manera eficiente. Trabajo con ramas, commits y pull requests para facilitar la colaboración y el seguimiento de cambios en proyectos.'
+            },
+            'security': {
+                title: 'Ciberseguridad Básica',
+                icon: '<i class="fas fa-shield-alt text-green-400"></i>',
+                desc: 'Aplicación de buenas prácticas de seguridad informática, hardening de sistemas y concienciación sobre vulnerabilidades para proteger la infraestructura y los datos.'
+            }
+        };
+
+        function openSkillModal(skillKey) {
+            const modal = document.getElementById('skill-modal');
+            const data = skillsData[skillKey];
+            
+            if(data) {
+                document.getElementById('modal-title').textContent = data.title;
+                document.getElementById('modal-desc').textContent = data.desc;
+                document.getElementById('modal-icon').innerHTML = data.icon;
+                
+                modal.classList.remove('hidden-modal');
+                modal.classList.add('visible-modal');
+            }
+        }
+
+        function closeSkillModal() {
+            const modal = document.getElementById('skill-modal');
+            modal.classList.remove('visible-modal');
+            modal.classList.add('hidden-modal');
+        }
+
+        // Cerrar con tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeSkillModal();
+            }
+        });
 
         document.addEventListener("DOMContentLoaded", () => {
             

@@ -344,7 +344,7 @@
                 Estoy disponible para unirme a proyectos de desarrollo o soporte.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 items-center">
-                <!-- Botón Copiar Correo con Tooltip -->
+                <!-- Botón Copiar Correo -->
                 <button onclick="copyEmail()" class="group relative px-8 py-3 bg-white text-dark font-bold rounded hover:scale-105 transition flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     <i class="fas fa-envelope text-primary"></i> 
                     <span id="email-text">roberttedt@gmail.com</span>
@@ -355,9 +355,16 @@
                     </span>
                 </button>
 
-                <a href="tel:+34654851936" class="px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition">
-                    <i class="fas fa-phone mr-2"></i> +34 654 85 19 36
-                </a>
+                <!-- Botón Copiar Teléfono (Modificado) -->
+                <button onclick="copyPhone()" class="group relative px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition flex items-center gap-2 active:scale-95 hover:border-primary">
+                    <i class="fas fa-phone mr-2"></i> 
+                    <span>+34 654 85 19 36</span>
+                    <i class="fas fa-copy text-slate-500 group-hover:text-white ml-2 text-xs transition-colors"></i>
+
+                    <span id="copy-phone-feedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs py-1 px-3 rounded opacity-0 transition-opacity duration-300 pointer-events-none font-bold">
+                        ¡Copiado!
+                    </span>
+                </button>
             </div>
             <!-- Ubicación y Movilidad añadidas -->
             <div class="mt-8 flex flex-col items-center gap-2 text-slate-500">
@@ -407,8 +414,25 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Error al copiar: ', err);
-                // Fallback por si falla (navegadores antiguos)
                 alert("Email: " + email);
+            });
+        }
+
+        // Función para copiar teléfono
+        function copyPhone() {
+            const phone = "+34 654 85 19 36";
+            navigator.clipboard.writeText(phone).then(() => {
+                const feedback = document.getElementById('copy-phone-feedback');
+                feedback.classList.remove('opacity-0');
+                feedback.classList.add('opacity-100');
+                
+                setTimeout(() => {
+                    feedback.classList.remove('opacity-100');
+                    feedback.classList.add('opacity-0');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+                alert("Teléfono: " + phone);
             });
         }
 

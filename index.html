@@ -104,9 +104,13 @@
                     Técnico en Sistemas y estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona unir el mundo del hardware y redes con el desarrollo de software moderno.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center w-full flex-wrap">
                     <a href="#proyectos" class="px-6 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-white transition shadow-[0_0_15px_rgba(56,189,248,0.4)] text-center">
                         Ver Proyectos
+                    </a>
+                    <!-- Enlazado al archivo PDF genérico 'CV.pdf' (asegúrate de renombrar tu archivo nuevo a este nombre) -->
+                    <a href="CV.pdf" download class="px-6 py-3 bg-slate-800 text-white border border-slate-600 font-bold rounded-lg hover:bg-slate-700 hover:border-primary transition flex items-center justify-center gap-2 text-center">
+                        <i class="fas fa-file-pdf text-red-400"></i> Descargar CV
                     </a>
                     <a href="https://www.linkedin.com/in/robertomu%C3%B1ozrovira/" target="_blank" class="px-6 py-3 border border-slate-600 rounded-lg hover:bg-slate-800 transition flex items-center justify-center gap-2 text-center">
                         <i class="fab fa-linkedin"></i> LinkedIn
@@ -146,12 +150,13 @@
                         <div class="p-3 bg-primary/10 rounded-xl text-primary text-2xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-laptop-code"></i>
                         </div>
+                        <!-- Fecha sincronizada con el CV nuevo -->
                         <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300">Sept 2024 - Dic 2024</span>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Técnico Informático</h3>
-                    <p class="text-primary font-medium mb-4">HIGHER EDUCATION BARCELONA S.L.U</p>
+                    <p class="text-primary font-medium mb-4">HIGHER EDUCATION BARCELONA</p>
                     <p class="text-slate-400 mb-6 leading-relaxed text-sm mx-auto max-w-sm">
-                        Experiencia profesional en remoto gestionando incidencias, soporte técnico y mantenimiento de sistemas en un entorno corporativo real.
+                        Experiencia profesional gestionando incidencias, soporte técnico y mantenimiento de sistemas en un entorno corporativo real (Prácticas).
                     </p>
                     <div class="flex flex-wrap gap-2 justify-center">
                         <span class="px-3 py-1 rounded-md bg-slate-800 text-xs text-slate-300 border border-slate-700">Soporte Remoto</span>
@@ -164,7 +169,7 @@
                         <div class="p-3 bg-secondary/10 rounded-xl text-secondary text-2xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-green-400 border-green-900/30">En curso</span>
+                        <span class="font-mono text-xs py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-green-400 border-green-900/30">Feb 2025 - Actualidad</span>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">DAM (Desarrollo Multiplataforma)</h3>
                     <p class="text-secondary font-medium mb-4">UNIVERSAE</p>
@@ -186,7 +191,8 @@
                         </div>
                         <div>
                             <h4 class="text-lg font-bold text-white">Técnico SMR (Sistemas Microinformáticos y Redes)</h4>
-                            <p class="text-slate-400 text-sm">UNIVERSAE • 2024 - 2025</p>
+                            <!-- Fecha sincronizada con el CV nuevo -->
+                            <p class="text-slate-400 text-sm">UNIVERSAE • Feb 2024 - Feb 2025</p>
                         </div>
                     </div>
                     <div class="flex gap-2 flex-wrap justify-center">
@@ -204,8 +210,8 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-12 reveal">Proyectos Destacados</h2>
             
-            <!-- Grid de 3 columnas -->
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Grid 2x2 -->
+            <div class="grid md:grid-cols-2 gap-8">
                 
                 <!-- Proyecto 1: Terranova -->
                 <div class="glass rounded-xl overflow-hidden group reveal flex flex-col h-full">
@@ -228,13 +234,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Proyecto 2: ATMOS (Actualizado) -->
+
+                <!-- Proyecto 2: ATMOS. -->
                 <div class="glass rounded-xl overflow-hidden group reveal delay-100 flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
-                        <!-- Icono de fondo decorativo (Viento) -->
                         <i class="fas fa-wind absolute -bottom-4 -right-4 text-9xl text-yellow-900/30 group-hover:text-yellow-600/20 transition"></i>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <!-- Logo Principal -->
                             <div class="text-center">
                                 <i class="fas fa-wind text-6xl text-yellow-400 drop-shadow-lg"></i>
                             </div>
@@ -253,9 +258,33 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Proyecto 3: Labs -->
+
+                <!-- Proyecto 3: Done. -->
                 <div class="glass rounded-xl overflow-hidden group reveal delay-200 flex flex-col h-full">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
+                        <i class="fas fa-check-circle absolute -bottom-4 -right-4 text-9xl text-purple-900/30 group-hover:text-purple-600/20 transition"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-check-double text-6xl text-purple-400 drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col items-center flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-wide">Done.</h3>
+                        <p class="text-sm font-mono text-purple-400 mb-4">JS • LocalStorage</p>
+                        <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
+                            Gestor de tareas minimalista e intuitivo. Permite organizar pendientes con persistencia de datos local para no perder tu progreso.
+                        </p>
+                        <div class="mt-auto">
+                            <a href="https://roberttedt-jr.github.io/Ejercicio-To-Do-List/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-purple-600 text-white rounded transition">
+                                Ver App <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 4: Labs -->
+                <div class="glass rounded-xl overflow-hidden group reveal delay-300 flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-code absolute -bottom-4 -right-4 text-9xl text-blue-900/30 group-hover:text-blue-600/20 transition"></i>
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -314,13 +343,30 @@
             <p class="text-slate-400 mb-8">
                 Estoy disponible para unirme a proyectos de desarrollo o soporte.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <div class="px-8 py-3 bg-white text-dark font-bold rounded cursor-default">
-                    <i class="fas fa-envelope mr-2"></i> roberttedt@gmail.com
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 items-center">
+                <!-- Botón Copiar Correo con Tooltip -->
+                <button onclick="copyEmail()" class="group relative px-8 py-3 bg-white text-dark font-bold rounded hover:scale-105 transition flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                    <i class="fas fa-envelope text-primary"></i> 
+                    <span id="email-text">roberttedt@gmail.com</span>
+                    <i class="fas fa-copy text-slate-400 group-hover:text-dark ml-2 text-xs"></i>
+                    
+                    <span id="copy-feedback" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs py-1 px-3 rounded opacity-0 transition-opacity duration-300 pointer-events-none font-bold">
+                        ¡Copiado!
+                    </span>
+                </button>
+
                 <a href="tel:+34654851936" class="px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition">
                     <i class="fas fa-phone mr-2"></i> +34 654 85 19 36
                 </a>
+            </div>
+            <!-- Ubicación y Movilidad añadidas -->
+            <div class="mt-8 flex flex-col items-center gap-2 text-slate-500">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-primary"></i> Benidorm, Alicante
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <i class="fas fa-car text-primary"></i> Vehículo propio • Disponibilidad para viajar
+                </div>
             </div>
         </div>
     </section>
@@ -345,6 +391,25 @@
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             if(menu) menu.classList.toggle('hidden');
+        }
+
+        // Función para copiar email
+        function copyEmail() {
+            const email = "roberttedt@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = document.getElementById('copy-feedback');
+                feedback.classList.remove('opacity-0');
+                feedback.classList.add('opacity-100');
+                
+                setTimeout(() => {
+                    feedback.classList.remove('opacity-100');
+                    feedback.classList.add('opacity-0');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+                // Fallback por si falla (navegadores antiguos)
+                alert("Email: " + email);
+            });
         }
 
         // Datos para los modales

@@ -209,6 +209,7 @@
             
             <div class="grid md:grid-cols-2 gap-8">
                 
+                <!-- Proyecto 2: ATMOS. -->
                 <div class="glass rounded-xl overflow-hidden group reveal flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-wind absolute -bottom-4 -right-4 text-9xl text-yellow-900/30 group-hover:text-yellow-600/20 transition"></i>
@@ -235,6 +236,7 @@
                     </div>
                 </div>
 
+                <!-- Proyecto 3: Done. -->
                 <div class="glass rounded-xl overflow-hidden group reveal delay-100 flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-check-circle absolute -bottom-4 -right-4 text-9xl text-purple-900/30 group-hover:text-purple-600/20 transition"></i>
@@ -261,6 +263,7 @@
                     </div>
                 </div>
                 
+                <!-- Proyecto 4: Labs -->
                 <div class="glass rounded-xl overflow-hidden group reveal delay-200 flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-code absolute -bottom-4 -right-4 text-9xl text-blue-900/30 group-hover:text-blue-600/20 transition"></i>
@@ -324,6 +327,7 @@
                 Estoy disponible para unirme a proyectos de desarrollo o soporte.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 items-center">
+                <!-- Botón Copiar Correo -->
                 <button onclick="copyEmail()" class="group relative px-8 py-3 bg-white text-dark font-bold rounded hover:scale-105 transition flex items-center gap-2 active:scale-95 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     <i class="fas fa-envelope text-primary"></i> 
                     <span id="email-text">roberttedt@gmail.com</span>
@@ -334,6 +338,7 @@
                     </span>
                 </button>
 
+                <!-- Botón Copiar Teléfono -->
                 <button onclick="copyPhone()" class="group relative px-8 py-3 border border-slate-600 text-white rounded hover:bg-slate-800 transition flex items-center gap-2 active:scale-95 hover:border-primary">
                     <i class="fas fa-phone mr-2"></i> 
                     <span>+34 654 85 19 36</span>
@@ -355,6 +360,7 @@
         </div>
     </section>
 
+    <!-- Modal SKILLS (Existente) -->
     <div id="skill-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4 modal-container">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSkillModal()"></div>
         <div class="glass relative w-full max-w-md p-8 rounded-2xl border border-slate-600 shadow-2xl transform transition-all scale-100">
@@ -367,6 +373,7 @@
         </div>
     </div>
 
+    <!-- NUEVO: Modal PROYECTOS -->
     <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden-modal p-4 modal-container">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeProjectModal()"></div>
         <div class="glass relative w-full max-w-lg p-8 rounded-2xl border border-slate-600 shadow-2xl transform transition-all scale-100">
@@ -475,7 +482,6 @@
 
         /* --- NUEVA LÓGICA MODALES PROYECTOS --- */
         const projectsData = {
-            // Se ha eliminado la entrada de Terranova para mantener coherencia con el HTML
             'atmos': {
                 title: 'ATMOS.',
                 desc: 'Aplicación de consulta meteorológica en tiempo real que conecta con una API pública para mostrar datos precisos de cualquier ubicación.',
@@ -572,4 +578,20 @@
                         ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fillStyle = '#38bdf8'; ctx.fill();
                         for(let j = i; j < particles.length; j++) {
                             let p2 = particles[j];
-                            let dx = p.x - p2.x; let dy =
+                            let dx = p.x - p2.x; let dy = p.y - p2.y;
+                            let distance = Math.sqrt(dx*dx + dy*dy);
+                            if(distance < 120) {
+                                ctx.beginPath(); ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance/120})`;
+                                ctx.lineWidth = 0.5; ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }
+                window.addEventListener('resize', () => { resize(); initParticles(); });
+                resize(); initParticles(); animate();
+            }
+        });
+    </script>
+</body>
+</html>

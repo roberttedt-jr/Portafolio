@@ -209,7 +209,7 @@
             
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <!-- Proyecto 2: ATMOS. -->
+                <!-- Proyecto 1: ATMOS. -->
                 <div class="glass rounded-xl overflow-hidden group reveal flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-wind absolute -bottom-4 -right-4 text-9xl text-yellow-900/30 group-hover:text-yellow-600/20 transition"></i>
@@ -236,8 +236,38 @@
                     </div>
                 </div>
 
-                <!-- Proyecto 3: Done. -->
-                <div class="glass rounded-xl overflow-hidden group reveal delay-100 flex flex-col h-full">
+                <!-- Proyecto 2: Flicker (Intercambiado a posición 2 y SILUETA CÁMARA) -->
+                 <div class="glass rounded-xl overflow-hidden group reveal delay-100 flex flex-col h-full">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
+                        <!-- Decoración sutil de fondo -->
+                        <i class="fas fa-film absolute -bottom-4 -right-4 text-9xl text-rose-900/10 group-hover:text-rose-600/10 transition"></i>
+                        
+                        <!-- Icono principal (Silueta de cámara de cine) -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-video text-6xl text-rose-400 drop-shadow-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col items-center flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-2 tracking-wide">Flicker</h3>
+                        <p class="text-sm font-mono text-rose-400 mb-4">React • Web App • Media</p>
+                        <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
+                            Plataforma interactiva de contenido visual. Interfaz moderna para exploración de medios digitales.
+                        </p>
+                        <div class="mt-auto flex gap-3">
+                            <a href="https://roberttedt-jr.github.io/Flicker/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-rose-600 text-white rounded transition text-sm">
+                                Ver App <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <button onclick="openProjectModal('flicker')" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 hover:bg-slate-800 text-white rounded transition text-sm">
+                                Info <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Done. (Intercambiado a posición 3) -->
+                <div class="glass rounded-xl overflow-hidden group reveal delay-150 flex flex-col h-full">
                     <div class="h-48 bg-slate-800 relative overflow-hidden shrink-0">
                         <i class="fas fa-check-circle absolute -bottom-4 -right-4 text-9xl text-purple-900/30 group-hover:text-purple-600/20 transition"></i>
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -273,7 +303,7 @@
                     </div>
                     <div class="p-6 flex flex-col items-center flex-1">
                         <h3 class="text-2xl font-bold text-white mb-2">Ejercicios & Labs</h3>
-                        <p class="text-sm font-mono text-blue-400 mb-4">Java • Python • SQL</p>
+                        <p class="text-sm font-mono text-blue-400 mb-4">Java • Python • SQL • React</p>
                         <p class="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
                             Colección de prácticas de clase, algoritmos y pequeños scripts de automatización desarrollados durante el curso.
                         </p>
@@ -300,6 +330,9 @@
                 </button>
                 <button onclick="openSkillModal('android')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fab fa-android text-green-500"></i> Android
+                </button>
+                <button onclick="openSkillModal('react')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
+                    <i class="fab fa-react text-cyan-400"></i> React
                 </button>
                 <button onclick="openSkillModal('sql')" class="px-4 py-2 glass rounded border border-slate-700 text-slate-300 flex items-center gap-2 hover:bg-slate-800 hover:border-primary transition cursor-pointer hover:scale-105">
                     <i class="fas fa-database text-blue-400"></i> SQL
@@ -456,6 +489,7 @@
         const skillsData = {
             'java': { title: 'Java', icon: '<i class="fab fa-java text-orange-400"></i>', desc: 'Lenguaje orientado a objetos que utilizo como base para el desarrollo backend y aplicaciones de escritorio. Me permite crear código robusto, escalable y seguro.' },
             'android': { title: 'Desarrollo Android', icon: '<i class="fab fa-android text-green-500"></i>', desc: 'Desarrollo de aplicaciones móviles nativas utilizando Android Studio. Experiencia en la creación de interfaces intuitivas, gestión de ciclo de vida de actividades y conectividad con APIs.' },
+            'react': { title: 'React', icon: '<i class="fab fa-react text-cyan-400"></i>', desc: 'Biblioteca de JavaScript para construir interfaces de usuario interactivas y eficientes. Uso de componentes reutilizables, hooks y gestión de estado para crear aplicaciones web modernas y dinámicas (Single Page Applications).' },
             'sql': { title: 'Bases de Datos SQL', icon: '<i class="fas fa-database text-blue-400"></i>', desc: 'Diseño y gestión de bases de datos relacionales. Redacción de consultas complejas para extraer información, asegurar la integridad de los datos y optimizar el rendimiento del almacenamiento.' },
             'linux': { title: 'Administración Linux', icon: '<i class="fab fa-linux text-yellow-400"></i>', desc: 'Manejo fluido de la terminal, scripting en Bash y administración de servidores. Configuración de permisos, usuarios y servicios para mantener entornos seguros y estables.' },
             'html': { title: 'HTML5 & CSS3', icon: '<i class="fab fa-html5 text-orange-600"></i>', desc: 'Estructuración semántica de contenido web y diseño de interfaces responsivas. Uso de frameworks modernos como Tailwind CSS para crear experiencias visuales atractivas y adaptables.' },
@@ -494,11 +528,17 @@
                 ai: 'La IA me ayudó a implementar la lógica del Canvas para efectos visuales y a refinar las funciones de guardado en LocalStorage.',
                 learn: 'Profundicé en el uso de LocalStorage para persistencia de datos y en la gestión de eventos de usuario para crear interfaces interactivas.'
             },
+            'flicker': {
+                title: 'Flicker',
+                desc: 'Aplicación web multimedia enfocada en la experiencia visual. Desarrollada con React para una gestión eficiente de componentes y estado. Permite la exploración de contenido en una interfaz moderna y responsiva.',
+                ai: 'Utilicé herramientas de IA para optimizar la estructura CSS del grid de imágenes y para refinar la lógica de componentes en React.',
+                learn: 'Mejoré mis habilidades en React (Hooks, Componentes), diseño UI avanzado y manipulación de medios en entornos SPA.'
+            },
             'labs': {
                 title: 'Ejercicios & Labs',
-                desc: 'Repositorio con diversos scripts y pequeños programas creados durante mi formación para resolver problemas algorítmicos.',
+                desc: 'Repositorio con diversos scripts y pequeños programas creados durante mi formación para resolver problemas algorítmicos. Incluye prácticas en React.',
                 ai: 'Usé IA para depurar código (debugging), encontrar errores de lógica en los algoritmos y explorar formas alternativas de resolver el mismo problema.',
-                learn: 'Mejoré mi lógica de programación, aprendí sintaxis avanzada de Java/Python y buenas prácticas de código limpio (Clean Code).'
+                learn: 'Mejoré mi lógica de programación, aprendí sintaxis avanzada de Java/Python, React y buenas prácticas de código limpio (Clean Code).'
             }
         };
 
